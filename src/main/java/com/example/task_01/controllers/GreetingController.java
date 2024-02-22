@@ -1,5 +1,6 @@
 package com.example.task_01.controllers;
 
+import com.example.task_01.models.Celebration;
 import com.example.task_01.models.Greeting;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 public class GreetingController {
 
     @GetMapping()
-    public Greeting newGreeting(@RequestParam(defaultValue = "00:00") String timeOfDay) {
+    public Greeting greeting(@RequestParam(defaultValue = "00:00") String timeOfDay) {
         return new Greeting("Jane", timeOfDay);
     }
 
     @GetMapping(value = "/summer")
-    public String anotherGreeting() {
-        return "Happy summer solstice!";
+    public Celebration celebration() {
+        return new Celebration("Happy summer solstice!");
     }
 
 }
